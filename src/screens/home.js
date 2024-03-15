@@ -1,14 +1,21 @@
-import { Button, Text, View } from 'react-native';
+import { Image, ScrollView, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { MagnifyingGlassIcon } from "react-native-heroicons/outline";
 
 const Home = ({ navigation }) => {
   return (
-    <View className="flex-1 items-center justify-center bg-green-600">
-      <Text className="text-3xl font-bold text-red-500">Home Page</Text>
+    <View className="flex-1 bg-slate-950">
+      <SafeAreaView>
+        <StatusBar style={"light"} />
 
-      <Button
-        title={'Go To Details'}
-        onPress={() => navigation.navigate('Detailed')}
-      />
+        <View className="flex-row items-center justify-between mx-4">
+          <Image source={require("../../assets/logo.png")} />
+
+          <MagnifyingGlassIcon color="white" size={32} strokeWidth={2} onPress={() => navigation.navigate("Detailed")} />
+        </View>
+      </SafeAreaView>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 10 }}></ScrollView>
     </View>
   );
 };
